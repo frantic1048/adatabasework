@@ -1,0 +1,8 @@
+engines:
+  eslint:
+    enabled: true
+ratings:
+  paths:
+  - src/server/*.js
+  - src/server/**/*.js
+  - gulpfile.babel.js
