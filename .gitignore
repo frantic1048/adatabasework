@@ -39,3 +39,6 @@ npm-debug.log
 
 # semantic ui
 semantic/
+
+# static image
+static/img
