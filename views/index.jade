@@ -1,11 +1,7 @@
-doctype html
-html
-  include ./includes/head.jade
-  body(style="display: flex; min-height: 100vh; flex-direction: column")
-    .ui.container
-      include ./includes/header.jade
-      include ./includes/navbar.jade
-      #content
-        //- include ./contents/foo.jade
-      include ./includes/tail.jade
-  include ./includes/footer.jade
+extends ./layout.jade
+
+block title
+  title 复杂网络与安全研究实验室
+
+block content
+  h1.ui.header INDEX

@@ -1,0 +1,14 @@
+doctype html
+html
+  meta(charset="utf8")
+  block title
+    title 复杂网络与安全研究实验室
+  include ./includes/head.jade
+  body(style="display: flex; min-height: 100vh; flex-direction: column")
+    .ui.container
+      include ./includes/header.jade
+      include ./includes/navbar.jade
+      #content
+        block content
+      include ./includes/tail.jade
+  include ./includes/footer.jade
