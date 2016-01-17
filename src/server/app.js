@@ -1,5 +1,4 @@
 import express from 'express';
-import morgan  from 'morgan';
 import logger  from './logger';
 import config  from '../../config';
 import root    from './routes/root';
@@ -8,8 +7,7 @@ const app = express();
 
 app.set('view engine', 'jade');
 
-app.use(morgan('dev'));
-
+app.use('/static', express.static(__dirname + '/../../static'));
 app.use('/', root);
 
 const server = app.listen(config.serverPort, () => {

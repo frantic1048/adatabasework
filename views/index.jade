@@ -1,5 +1,11 @@
 doctype html
 html
   include ./includes/head.jade
-  body
-    h1 hi you !!!
+  body(style="display: flex; min-height: 100vh; flex-direction: column")
+    .ui.container
+      include ./includes/header.jade
+      include ./includes/navbar.jade
+      #content
+        //- include ./contents/foo.jade
+      include ./includes/tail.jade
+  include ./includes/footer.jade

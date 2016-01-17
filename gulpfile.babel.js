@@ -10,6 +10,8 @@ let server = null;
 const app = {
   js: {},
   jade: {},
+  static: {},
+  all: {},
 };
 
 app.js.src = ['src/server/*.js', 'src/server/**/*.js'];
@@ -25,9 +27,15 @@ app.js.lintSrc = Array.prototype.concat(
 
 app.jade.src = ['views/*.jade', 'views/**/*.jade'];
 
-const appSrc = Array.prototype.concat(
+app.static.src = Array.prototype.concat(
+  app.jade.src,
+  'static/*',
+  'static/**/*'
+);
+
+app.all.src = Array.prototype.concat(
   app.js.src,
-  app.jade.src
+  app.static.src
 );
 
 gulp.task('serve', (callback) => {
@@ -36,8 +44,11 @@ gulp.task('serve', (callback) => {
 });
 
 gulp.task('end-serve', (callback) => {
-  if (server) {
+  try {
     server.close();
+  } catch (e) {
+    // = =
+  } finally {
     server = null;
   }
   callback();
@@ -69,7 +80,7 @@ gulp.task('js-product', () => {
     .pipe(gulp.dest(app.js.destPath));
 });
 
-gulp.task('watcher-appSrc', (callback) => {
+gulp.task('watcher-all', (callback) => {
   gulp.series(
     'end-serve',
     'js-dev',
@@ -79,13 +90,14 @@ gulp.task('watcher-appSrc', (callback) => {
 });
 
 gulp.task('watch', (callback) => {
-  gulp.watch(appSrc, gulp.parallel('watcher-appSrc'));
+  gulp.watch(app.all.src, gulp.series('watcher-all'));
   callback();
 });
 
 gulp.task('dev', (callback) => {
   gulp.series(
-    'watcher-appSrc',
+    'js-dev',
+    'serve',
     'watch'
   )();
   callback();
