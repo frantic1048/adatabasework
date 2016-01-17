@@ -1,9 +1,10 @@
 {
   "name": "adatabasework",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "database homework",
   "main": "index.js",
   "scripts": {
+    "run": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

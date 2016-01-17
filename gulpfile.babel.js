@@ -39,7 +39,7 @@ app.all.src = Array.prototype.concat(
 );
 
 gulp.task('serve', (callback) => {
-  server = require('./build/server/app').default;
+  server = require('./index').default;
   callback();
 });
 
@@ -103,7 +103,7 @@ gulp.task('dev', (callback) => {
   callback();
 });
 
-gulp.task('product', (callback) => {
+gulp.task('build', (callback) => {
   gulp.parallel(
     'js-product',
   )();
