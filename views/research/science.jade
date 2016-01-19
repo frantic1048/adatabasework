@@ -12,10 +12,11 @@ block context
             th 名称
             th 层次
         tbody
-          tr
-            td 2222
-            td Lorem
-            td dolor.
+          for achieve in records.achievements
+            tr
+              td #{achieve.year}
+              td #{achieve.name}
+              td #{achieve.level}
     .ui.divider.column
     .column
       h1.ui.medium.header
@@ -28,11 +29,12 @@ block context
             th 期刊/会议名称
             th 期刊/会议时间
         tbody
-          tr
-            td 2222
-            td Lorem
-            td dolor.
-            td sit.
+          for paper in records.papers
+            tr
+              td #{paper.release_year}
+              td #{paper.wut}
+              td #{paper.wut}
+              td #{paper.wut}
     .ui.divider.column
     .column
       h1.ui.medium.header
@@ -44,10 +46,11 @@ block context
             th 申请人
             th 发明创造名称
         tbody
-          tr
-            td 2222
-            td Lorem
-            td dolor.
+          for patent in records.patents
+            tr
+              td #{patent.register_number}
+              td lorem
+              td #{patent.title}
     .ui.divider.column
     .column
       h1.ui.medium.header
@@ -60,8 +63,9 @@ block context
             th 著作权人
             th 软件名称
         tbody
-          tr
-            td 2222
-            td Lorem
-            td dolor.
-            td  Lorem ipsum dolor.
+          for book in records.books
+            tr
+              td #{book.copyright_number}
+              td #{book.register_number}
+              td #{book.wut}
+              td #{book.title}

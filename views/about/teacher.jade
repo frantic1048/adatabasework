@@ -7,66 +7,26 @@ block context
         h1.ui.medium.header 师资队伍
         h2.ui.small.header 全职教师
         .ui.two.column.container.grid.stackable
-          .column
-            .ui.card
-              .content
-                h3 教师姓名
-              .content
-                h3.ui.sub.header 职称
-                p 职称内容
-                h3.ui.sub.header 导师资格
-                p 导师资格内容
-                h3.ui.sub.header 实验室职务
-                p 实验室职务内容
-                h3.ui.sub.header 社会兼职
-                p 社会兼职内容
-                h3.ui.sub.header 行政职务
-                p 行政职务内容
-          .column
-            .ui.card
-              .content
-                h3 教师姓名
-              .content
-                h3.ui.sub.header 职称
-                p 职称内容
-                h3.ui.sub.header 导师资格
-                p 导师资格内容
-                h3.ui.sub.header 实验室职务
-                p 实验室职务内容
-                h3.ui.sub.header 社会兼职
-                p 社会兼职内容
-                h3.ui.sub.header 行政职务
-                p 行政职务内容
-          .column
-            .ui.card
-              .content
-                h3 教师姓名
-              .content
-                h3.ui.sub.header 职称
-                p 职称内容
-                h3.ui.sub.header 导师资格
-                p 导师资格内容
-                h3.ui.sub.header 实验室职务
-                p 实验室职务内容
-                h3.ui.sub.header 社会兼职
-                p 社会兼职内容
-                h3.ui.sub.header 行政职务
-                p 行政职务内容
-          .column
-            .ui.card
-              .content
-                h3 教师姓名
-              .content
-                h3.ui.sub.header 职称
-                p 职称内容
-                h3.ui.sub.header 导师资格
-                p 导师资格内容
-                h3.ui.sub.header 实验室职务
-                p 实验室职务内容
-                h3.ui.sub.header 社会兼职
-                p 社会兼职内容
-                h3.ui.sub.header 行政职务
-                p 行政职务内容
+          for teacher in teachers
+            .column
+              .ui.card
+                .content
+                  h3 #{teacher.first_name_CN}
+                .content
+                  if teacher.job_title
+                    h3.ui.sub.header 职称
+                    p #{teacher.job_title}
+                  if teacher.qualification
+                    h3.ui.sub.header 导师资格
+                    p #{teacher.qualification}
+                  h3.ui.sub.header 实验室职务
+                  p 实验室职务内容
+                  if teacher.social_work
+                    h3.ui.sub.header 社会兼职
+                    p #{teacher.social_work}
+                  if teacher.job_position
+                    h3.ui.sub.header 行政职务
+                    p #{teacher.job_position}
         h2.ui.small.header 兼职教师
         .ui.two.column.container.grid.stackable
           .column
