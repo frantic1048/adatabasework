@@ -1,4 +1,6 @@
 import { Router } from 'express';
+import sql        from 'mssql';
+import db         from '../db';
 
 const about = new Router();
 
@@ -7,7 +9,14 @@ about.get(['/', '/index'], (req, res) => {
 });
 
 about.get('/teacher', (req, res) => {
-  res.render('about/teacher', {activePage: 'about', secondaryActivePage: 'teacher'});
+  console.log('/teacher');
+  db(() => {
+    new sql.Request().query('select * from teacher')
+    .then((recordset) => {
+      console.log(recordset);
+      res.render('about/teacher', {activePage: 'about', secondaryActivePage: 'teacher'});
+    });
+  });
 });
 
 about.get('/student', (req, res) => {
