@@ -1,6 +1,6 @@
 {
   "name": "adatabasework",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "database homework",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
     "jade": "^1.11.0",
+    "mssql": "^3.0.0",
     "winston": "^2.1.1"
   },
   "devDependencies": {
